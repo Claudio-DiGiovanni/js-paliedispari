@@ -38,25 +38,30 @@ pariDispariForm.addEventListener("submit", function (event) {
     event.preventDefault()
 
     let userNumber =document.querySelector("#user-number");
-    if(userNumber.value < 1 || userNumber.value > 5) {
+    if (userNumber.value < 1 || userNumber.value > 5) {
         alert("il numero inserito non è valido")
-    }
-    const winner = document.getElementById("choose").value;
-
-    const computerNumber = parseInt(getRandomIntInclusive(1, 5));
-
-    const scelta = pariDispari(userNumber.value, computerNumber)
-
-    const resultPariDispari = document.querySelector(".paridispari .result");
-
-    if (winner === scelta) {
-        resultPariDispari.innerHTML = "Hai vinto"
-        
+        userNumber.value = ""
     } else {
-        resultPariDispari.innerHTML = "Hai perso"
+        const choose = document.getElementById("choose").value;
+
+        const computerNumber = parseInt(getRandomIntInclusive(1, 5));
+        const winner = pariDispari(userNumber.value, computerNumber)
+
+        document.querySelector(".computer-number").innerHTML = "Il numero del computer è: " + computerNumber
+
+
+        const resultPariDispari = document.querySelector(".paridispari .result");
+
+        if (choose === winner) {
+        resultPariDispari.innerHTML = "Hai vinto" + (parseInt(userNumber.value) + computerNumber)
         
+        } else {
+        resultPariDispari.innerHTML = "Hai perso" + (parseInt(userNumber.value) + parseInt(computerNumber))
+        
+        }
+        userNumber.value = ""
     }
-    userNumber.value = ""
+    
     
 })
 
@@ -70,7 +75,7 @@ function getRandomIntInclusive(min, max) {
 function pariDispari (num1, num2) {
     console.log(num1)
     console.log(num2)
-    let result = num1 + num2
+    let result = parseInt(num1) + parseInt(num2)
     console.log(result)
 
     if (result % 2 === 0) {
