@@ -1,0 +1,11 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+.result{
+    font-size: 30px;
+    font-weight: 500;
+    height: 2rem;
+    width: 100%;
+}

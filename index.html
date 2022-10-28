@@ -17,6 +17,29 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <h1 class="text-center my-5">Pali e Dispari</h1>
+    <div class="container palindromo">
+        <h2 class="my-2">Palindromo o no?</h2>
+        <form action="" method="get" id="palindrome">
+            <input type="text" id="user-word">
+            <button class="btn btn-secondary">Palindromo?</button>
+        </form>
+        <p class="result"></p>
+    </div>
+    <div class="container paridispari my-5">
+        <h2 class="my-2">Pari o Dispari?</h2>
+        <form action="" method="get" id="pari-dispari-form">
+            <div class="row">
+                <div class="col"><input type="number" name="" id="user-number" placeholder="inserisci un numero da 1 a 5"></div>
+                <div class="col"><select name="choose" id="choose">
+                    <option value="pari">Pari</option>
+                    <option value="dispari">Dispari</option>
+                </select></div>
+                <div class="col"><button class="btn btn-secondary">Pari o Dispari?</button></div>
+            </div>
+        </form>
+        <p class="result"></p>
+    </div>
     
 </body>
 </html>

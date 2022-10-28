@@ -1,5 +1,15 @@
-const userWord = prompt("inserisci una parola");
-console.log(palindromo(userWord));
+
+const resultPalindrome = document.querySelector(".palindromo .result");
+const palindromeForm = document.getElementById("palindrome");
+
+palindromeForm.addEventListener("submit", function (event) {
+    event.preventDefault()
+    const userWord = document.getElementById("user-word");
+    resultPalindrome.innerHTML = palindromo(userWord.value)
+    userWord.value = ""
+} )
+
+
 
 function palindromo(word) {
     let parolaDivisa = word.split("");
@@ -14,22 +24,42 @@ function palindromo(word) {
     }
 }
 
-let userNumber = parseInt(prompt("inserisci un numero da 1 a 5"));
-while (userNumber < 1 || userNumber > 5) {
-    alert("il numero inserito non è valido")
-    userNumber = parseInt(prompt("inserisci un numero da 1 a 5"));
-}
-const winner = prompt("Pari o Dispari?")
 
-const computerNumber = getRandomIntInclusive(1, 5);
 
-const scelta = pariDispari(userNumber, computerNumber)
 
-if (winner === scelta) {
-    console.log("Hai vinto")
-} else {
-    console.log("Hai perso")
-}
+
+
+
+
+
+const pariDispariForm = document.getElementById("pari-dispari-form");
+
+pariDispariForm.addEventListener("submit", function (event) {
+    event.preventDefault()
+
+    let userNumber =document.querySelector("#user-number");
+    if(userNumber.value < 1 || userNumber.value > 5) {
+        alert("il numero inserito non è valido")
+    }
+    const winner = document.getElementById("choose").value;
+
+    const computerNumber = parseInt(getRandomIntInclusive(1, 5));
+
+    const scelta = pariDispari(userNumber.value, computerNumber)
+
+    const resultPariDispari = document.querySelector(".paridispari .result");
+
+    if (winner === scelta) {
+        resultPariDispari.innerHTML = "Hai vinto"
+        
+    } else {
+        resultPariDispari.innerHTML = "Hai perso"
+        
+    }
+    userNumber.value = ""
+    
+})
+
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
